@@ -1,0 +1,135 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlcef6v72j6ax"]
+
+[ext_resource type="Texture2D" uid="uid://dtpqoqmju0fcg" path="res://Sprites/Menu_Sprites/backgroundoption.jpg" id="1_uc6l8"]
+[ext_resource type="Texture2D" uid="uid://bmine4qudp7gu" path="res://Sprites/Menu_Sprites/button.png" id="2_0qf0p"]
+[ext_resource type="Script" path="res://Scripts/Menu_Scripts/BackBtn.gd" id="3_qcdhl"]
+
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 768.0
+offset_bottom = 432.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -951.0
+offset_top = -540.0
+offset_right = 951.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_uc6l8")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -279.5
+offset_top = -294.0
+offset_right = 279.5
+offset_bottom = 294.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="StartBtn" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_0qf0p")
+
+[node name="StartBtntext" type="Label" parent="MarginContainer/VBoxContainer/StartBtn"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.541176, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "Video"
+
+[node name="ContinueBtn" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_0qf0p")
+
+[node name="ContinueBtnText" type="Label" parent="MarginContainer/VBoxContainer/ContinueBtn"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.541176, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "Audio"
+
+[node name="OptionsBtn" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_0qf0p")
+
+[node name="OptionsBtnText" type="Label" parent="MarginContainer/VBoxContainer/OptionsBtn"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.541176, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "Controls"
+
+[node name="BackBtn" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_0qf0p")
+script = ExtResource("3_qcdhl")
+
+[node name="BackBtnText" type="Label" parent="MarginContainer/VBoxContainer/BackBtn"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.541176, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "Back"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BackBtn" to="MarginContainer/VBoxContainer/BackBtn" method="_on_pressed"]
