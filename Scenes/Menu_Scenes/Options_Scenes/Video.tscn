@@ -44,69 +44,6 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="StartBtn" type="TextureButton" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("2_pmw8i")
-
-[node name="StartBtntext" type="Label" parent="MarginContainer/VBoxContainer/StartBtn"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.541176, 0, 0, 1)
-theme_override_font_sizes/font_size = 60
-text = "Video"
-
-[node name="ContinueBtn" type="TextureButton" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("2_pmw8i")
-
-[node name="ContinueBtnText" type="Label" parent="MarginContainer/VBoxContainer/ContinueBtn"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.541176, 0, 0, 1)
-theme_override_font_sizes/font_size = 60
-text = "Audio"
-
-[node name="OptionsBtn" type="TextureButton" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("2_pmw8i")
-
-[node name="OptionsBtnText" type="Label" parent="MarginContainer/VBoxContainer/OptionsBtn"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.541176, 0, 0, 1)
-theme_override_font_sizes/font_size = 60
-text = "Controls"
-
 [node name="BackBtn" type="TextureButton" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("2_pmw8i")
