@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://cyymfjv1keeev"]
+[gd_scene load_steps=7 format=3 uid="uid://cyymfjv1keeev"]
 
 [ext_resource type="Texture2D" uid="uid://dtpqoqmju0fcg" path="res://Sprites/Menu_Sprites/backgroundoption.jpg" id="1_1rinx"]
 [ext_resource type="Texture2D" uid="uid://bmine4qudp7gu" path="res://Sprites/Menu_Sprites/button.png" id="2_pmw8i"]
 [ext_resource type="Script" path="res://Scripts/Menu_Scripts/BackToOptionsBtn.gd" id="3_mnwmm"]
+[ext_resource type="AudioStream" uid="uid://c1u5rv6ybalsm" path="res://Sounds/backgroundmusic.wav" id="4_xkwdy"]
+[ext_resource type="AudioStream" uid="uid://ba8ydq8n7kd6u" path="res://Sounds/buttonClick.wav" id="5_l2jf7"]
+[ext_resource type="AudioStream" uid="uid://bl1bs7virhwqg" path="res://Sounds/buttonHover.wav" id="6_ds6g7"]
 
 [node name="Video" type="Control"]
 layout_mode = 3
@@ -65,5 +68,16 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0.541176, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 text = "Back"
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_xkwdy")
+autoplay = true
+bus = &"Music"
+
+[node name="BtnClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_l2jf7")
+
+[node name="HowerBtnSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ds6g7")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BackBtn" to="MarginContainer/VBoxContainer/BackBtn" method="_on_pressed"]

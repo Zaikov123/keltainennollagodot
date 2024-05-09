@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlcef6v72j6ax"]
+[gd_scene load_steps=10 format=3 uid="uid://dlcef6v72j6ax"]
 
 [ext_resource type="Texture2D" uid="uid://dtpqoqmju0fcg" path="res://Sprites/Menu_Sprites/backgroundoption.jpg" id="1_uc6l8"]
 [ext_resource type="Texture2D" uid="uid://bmine4qudp7gu" path="res://Sprites/Menu_Sprites/button.png" id="2_0qf0p"]
@@ -6,6 +6,9 @@
 [ext_resource type="Script" path="res://Scripts/Menu_Scripts/VideoBtn.gd" id="3_quiak"]
 [ext_resource type="Script" path="res://Scripts/Menu_Scripts/AudioBtn.gd" id="4_ivjrt"]
 [ext_resource type="Script" path="res://Scripts/Menu_Scripts/ControlsBtn.gd" id="5_wbvkr"]
+[ext_resource type="AudioStream" uid="uid://c1u5rv6ybalsm" path="res://Sounds/backgroundmusic.wav" id="7_1rt7k"]
+[ext_resource type="AudioStream" uid="uid://ba8ydq8n7kd6u" path="res://Sounds/buttonClick.wav" id="8_wsa4s"]
+[ext_resource type="AudioStream" uid="uid://bl1bs7virhwqg" path="res://Sounds/buttonHover.wav" id="9_owo1x"]
 
 [node name="Control" type="Control"]
 custom_minimum_size = Vector2(1920, 1080)
@@ -81,7 +84,7 @@ layout_mode = 2
 texture_normal = ExtResource("2_0qf0p")
 script = ExtResource("4_ivjrt")
 
-[node name="ContinueBtnText" type="Label" parent="MarginContainer/VBoxContainer/Audio"]
+[node name="StartBtntext" type="Label" parent="MarginContainer/VBoxContainer/Audio"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -96,7 +99,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.541176, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
-text = "Audio"
+text = "Video"
 
 [node name="Controls" type="TextureButton" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -142,7 +145,22 @@ theme_override_colors/font_color = Color(0.541176, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 text = "Back"
 
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_1rt7k")
+autoplay = true
+bus = &"Music"
+
+[node name="BtnClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_wsa4s")
+
+[node name="HowerBtnSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_owo1x")
+
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Video" to="MarginContainer/VBoxContainer/Video" method="_on_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Video" to="MarginContainer/VBoxContainer/Video" method="_on_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Audio" to="MarginContainer/VBoxContainer/Audio" method="_on_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Audio" to="MarginContainer/VBoxContainer/Audio" method="_on_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Controls" to="MarginContainer/VBoxContainer/Controls" method="_on_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Controls" to="MarginContainer/VBoxContainer/Controls" method="_on_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/BackBtn" to="MarginContainer/VBoxContainer/BackBtn" method="_on_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BackBtn" to="MarginContainer/VBoxContainer/BackBtn" method="_on_pressed"]

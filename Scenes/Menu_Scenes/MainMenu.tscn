@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bd3e861pw8t5q"]
+[gd_scene load_steps=10 format=3 uid="uid://bd3e861pw8t5q"]
 
 [ext_resource type="Texture2D" uid="uid://cv0637nkrrakr" path="res://Sprites/Menu_Sprites/mainMenu.png" id="1_towxf"]
 [ext_resource type="Texture2D" uid="uid://bmine4qudp7gu" path="res://Sprites/Menu_Sprites/button.png" id="2_h0hkj"]
 [ext_resource type="Script" path="res://Scripts/SoundsForBtn.gd" id="3_a432w"]
+[ext_resource type="Script" path="res://Scripts/Menu_Scripts/AudioBtn.gd" id="3_kskmt"]
 [ext_resource type="Script" path="res://Scripts/Menu_Scripts/OptionsBtnOpen.gd" id="3_vo3om"]
 [ext_resource type="Script" path="res://Scripts/Menu_Scripts/ExitBtn.gd" id="4_v7x0n"]
 [ext_resource type="AudioStream" uid="uid://c1u5rv6ybalsm" path="res://Sounds/backgroundmusic.wav" id="5_230xt"]
@@ -51,7 +52,7 @@ layout_mode = 2
 [node name="StartBtn" type="TextureButton" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("2_h0hkj")
-script = ExtResource("3_a432w")
+script = ExtResource("3_kskmt")
 
 [node name="StartBtntext" type="Label" parent="MarginContainer/VBoxContainer/StartBtn"]
 layout_mode = 1
@@ -149,5 +150,9 @@ stream = ExtResource("8_uqs2e")
 
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/StartBtn" to="MarginContainer/VBoxContainer/StartBtn" method="_on_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/StartBtn" to="MarginContainer/VBoxContainer/StartBtn" method="_on_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/ContinueBtn" to="MarginContainer/VBoxContainer/ContinueBtn" method="_on_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ContinueBtn" to="MarginContainer/VBoxContainer/ContinueBtn" method="_on_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/OptionsBtn" to="MarginContainer/VBoxContainer/OptionsBtn" method="_on_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsBtn" to="MarginContainer/VBoxContainer/OptionsBtn" method="_on_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/ExitBtn" to="MarginContainer/VBoxContainer/ExitBtn" method="_on_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ExitBtn" to="MarginContainer/VBoxContainer/ExitBtn" method="_on_pressed"]

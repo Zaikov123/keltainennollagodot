@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://6nj5vhol5nqg"]
+[gd_scene load_steps=7 format=3 uid="uid://6nj5vhol5nqg"]
 
 [ext_resource type="Texture2D" uid="uid://dtpqoqmju0fcg" path="res://Sprites/Menu_Sprites/backgroundoption.jpg" id="1_df6bl"]
 [ext_resource type="Texture2D" uid="uid://bmine4qudp7gu" path="res://Sprites/Menu_Sprites/button.png" id="2_05w54"]
 [ext_resource type="Script" path="res://Scripts/Menu_Scripts/BackToOptionsBtn.gd" id="3_wm1e4"]
+[ext_resource type="AudioStream" uid="uid://c1u5rv6ybalsm" path="res://Sounds/backgroundmusic.wav" id="5_rnykb"]
+[ext_resource type="AudioStream" uid="uid://ba8ydq8n7kd6u" path="res://Sounds/buttonClick.wav" id="6_asna6"]
+[ext_resource type="AudioStream" uid="uid://bl1bs7virhwqg" path="res://Sounds/buttonHover.wav" id="7_mc8gq"]
 
 [node name="Audio" type="Control"]
 layout_mode = 3
@@ -44,69 +47,6 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="StartBtn" type="TextureButton" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("2_05w54")
-
-[node name="StartBtntext" type="Label" parent="MarginContainer/VBoxContainer/StartBtn"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.541176, 0, 0, 1)
-theme_override_font_sizes/font_size = 60
-text = "Video"
-
-[node name="ContinueBtn" type="TextureButton" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("2_05w54")
-
-[node name="ContinueBtnText" type="Label" parent="MarginContainer/VBoxContainer/ContinueBtn"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.541176, 0, 0, 1)
-theme_override_font_sizes/font_size = 60
-text = "Audio"
-
-[node name="OptionsBtn" type="TextureButton" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("2_05w54")
-
-[node name="OptionsBtnText" type="Label" parent="MarginContainer/VBoxContainer/OptionsBtn"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.541176, 0, 0, 1)
-theme_override_font_sizes/font_size = 60
-text = "Controls"
-
 [node name="BackBtn" type="TextureButton" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("2_05w54")
@@ -128,5 +68,16 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0.541176, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 text = "Back"
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_rnykb")
+autoplay = true
+bus = &"Music"
+
+[node name="BtnClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_asna6")
+
+[node name="HowerBtnSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_mc8gq")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BackBtn" to="MarginContainer/VBoxContainer/BackBtn" method="_on_pressed"]
