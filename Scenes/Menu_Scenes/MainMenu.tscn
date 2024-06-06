@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://cv0637nkrrakr" path="res://Sprites/Menu_Sprites/mainMenu.png" id="1_towxf"]
 [ext_resource type="Texture2D" uid="uid://bmine4qudp7gu" path="res://Sprites/Menu_Sprites/button.png" id="2_h0hkj"]
+[ext_resource type="Script" path="res://Scripts/Menu_Scripts/GameBtn.gd" id="3_2tq56"]
 [ext_resource type="Script" path="res://Scripts/SoundsForBtn.gd" id="3_a432w"]
-[ext_resource type="Script" path="res://Scripts/Menu_Scripts/AudioBtn.gd" id="3_kskmt"]
 [ext_resource type="Script" path="res://Scripts/Menu_Scripts/OptionsBtnOpen.gd" id="3_vo3om"]
 [ext_resource type="Script" path="res://Scripts/Menu_Scripts/ExitBtn.gd" id="4_v7x0n"]
 [ext_resource type="AudioStream" uid="uid://c1u5rv6ybalsm" path="res://Sounds/backgroundmusic.wav" id="5_230xt"]
@@ -13,9 +13,17 @@
 [node name="Control" type="Control"]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -24,9 +32,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -951.0
+offset_left = -960.0
 offset_top = -540.0
-offset_right = 951.0
+offset_right = 960.0
 offset_bottom = 540.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -52,7 +60,7 @@ layout_mode = 2
 [node name="StartBtn" type="TextureButton" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("2_h0hkj")
-script = ExtResource("3_kskmt")
+script = ExtResource("3_2tq56")
 
 [node name="StartBtntext" type="Label" parent="MarginContainer/VBoxContainer/StartBtn"]
 layout_mode = 1
@@ -144,6 +152,7 @@ bus = &"Music"
 
 [node name="BtnClickSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_ynvab")
+bus = &"Sounds"
 
 [node name="HowerBtnSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_uqs2e")

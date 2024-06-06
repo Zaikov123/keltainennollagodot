@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://6nj5vhol5nqg"]
+[gd_scene load_steps=9 format=3 uid="uid://6nj5vhol5nqg"]
 
 [ext_resource type="Texture2D" uid="uid://dtpqoqmju0fcg" path="res://Sprites/Menu_Sprites/backgroundoption.jpg" id="1_df6bl"]
 [ext_resource type="Texture2D" uid="uid://bmine4qudp7gu" path="res://Sprites/Menu_Sprites/button.png" id="2_05w54"]
 [ext_resource type="Script" path="res://Scripts/Menu_Scripts/BackToOptionsBtn.gd" id="3_wm1e4"]
+[ext_resource type="Script" path="res://Scripts/Menu_Scripts/NonPressableButtonSound.gd" id="4_4tuca"]
+[ext_resource type="Script" path="res://Scripts/Menu_Scripts/MasterSlider.gd" id="4_eooot"]
 [ext_resource type="AudioStream" uid="uid://c1u5rv6ybalsm" path="res://Sounds/backgroundmusic.wav" id="5_rnykb"]
 [ext_resource type="AudioStream" uid="uid://ba8ydq8n7kd6u" path="res://Sounds/buttonClick.wav" id="6_asna6"]
 [ext_resource type="AudioStream" uid="uid://bl1bs7virhwqg" path="res://Sounds/buttonHover.wav" id="7_mc8gq"]
@@ -47,6 +49,118 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
+[node name="MasterSlider" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("2_05w54")
+script = ExtResource("4_4tuca")
+
+[node name="masterText" type="Label" parent="MarginContainer/VBoxContainer/MasterSlider"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -83.0
+offset_right = 83.0
+offset_bottom = 52.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.541176, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "Master:
+"
+
+[node name="master" type="HSlider" parent="MarginContainer/VBoxContainer/MasterSlider"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -8.0
+offset_right = 250.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("4_eooot")
+bus_name = "Master"
+
+[node name="MusicSlider" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_05w54")
+script = ExtResource("4_4tuca")
+
+[node name="musicText" type="Label" parent="MarginContainer/VBoxContainer/MusicSlider"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -72.0
+offset_right = 72.0
+offset_bottom = 52.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.541176, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "Music:
+"
+
+[node name="music" type="HSlider" parent="MarginContainer/VBoxContainer/MusicSlider"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -8.0
+offset_right = 250.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("4_eooot")
+bus_name = "Music"
+
+[node name="SFXSlider" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_05w54")
+script = ExtResource("4_4tuca")
+
+[node name="sfxText" type="Label" parent="MarginContainer/VBoxContainer/SFXSlider"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -57.5
+offset_right = 57.5
+offset_bottom = 52.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.541176, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "SFX:"
+
+[node name="sfx" type="HSlider" parent="MarginContainer/VBoxContainer/SFXSlider"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -8.0
+offset_right = 250.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("4_eooot")
+bus_name = "Sounds"
+
 [node name="BackBtn" type="TextureButton" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("2_05w54")
@@ -76,8 +190,16 @@ bus = &"Music"
 
 [node name="BtnClickSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_asna6")
+bus = &"Sounds"
 
 [node name="HowerBtnSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_mc8gq")
 
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/MasterSlider" to="MarginContainer/VBoxContainer/MasterSlider" method="_on_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MasterSlider" to="MarginContainer/VBoxContainer/MasterSlider" method="_on_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/MusicSlider" to="MarginContainer/VBoxContainer/MusicSlider" method="_on_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MusicSlider" to="MarginContainer/VBoxContainer/MusicSlider" method="_on_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/SFXSlider" to="MarginContainer/VBoxContainer/SFXSlider" method="_on_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SFXSlider" to="MarginContainer/VBoxContainer/SFXSlider" method="_on_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/BackBtn" to="MarginContainer/VBoxContainer/BackBtn" method="_on_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BackBtn" to="MarginContainer/VBoxContainer/BackBtn" method="_on_pressed"]
